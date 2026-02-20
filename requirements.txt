@@ -1,0 +1,4 @@
+aiogram==3.25.0
+google-genai==1.64.0
+pydantic==2.12.5
+pydantic-settings==2.13.1
