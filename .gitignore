@@ -21,3 +21,5 @@ build/
 *.whl
 *.tar.gz
 *.zip
+GEMINI.md
+system_prompt.md
