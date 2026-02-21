@@ -23,3 +23,4 @@ build/
 *.zip
 GEMINI.md
 system_prompt.md
+xray_config.json

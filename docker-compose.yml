@@ -1,0 +1,23 @@
+services:
+  bot:
+    build: .
+    container_name: gemini_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Route traffic through the Xray container
+      - HTTP_PROXY=http://xray:10809
+      - HTTPS_PROXY=http://xray:10809
+    depends_on:
+      - xray
+
+  xray:
+    image: teddysun/xray:latest
+    container_name: xray_proxy
+    restart: unless-stopped
+    volumes:
+      - ./xray_config.json:/etc/xray/config.json
+    ports:
+      # Optional: Expose proxy to host if needed, otherwise keep internal
+      - "127.0.0.1:10809:10809"
